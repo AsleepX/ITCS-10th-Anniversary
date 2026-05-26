@@ -47,7 +47,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (marquee && marqueeTrack) {
         const originalSlides = Array.from(marqueeTrack.querySelectorAll('figure:not([aria-hidden="true"])'));
-        let photoIndex = 0;
+        const leadingClones = document.createDocumentFragment();
+        originalSlides.forEach((figure) => {
+            const clone = figure.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            const cloneImage = clone.querySelector('img');
+            if (cloneImage) cloneImage.alt = '';
+            leadingClones.appendChild(clone);
+        });
+        marqueeTrack.insertBefore(leadingClones, marqueeTrack.firstChild);
+
+        let photoIndex = originalSlides.length;
         let photoTimer = null;
         const transitionMs = 850;
         const pauseMs = 2600;
@@ -63,31 +73,38 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        function slideStep() {
-            const firstSlide = marqueeTrack.querySelector('figure');
-            if (!firstSlide || originalSlides.length === 0) return 0;
+        function slideCenterOffset(index) {
+            const slides = Array.from(marqueeTrack.querySelectorAll('figure'));
+            const slide = slides[index];
+            if (!slide) return 0;
             const gap = parseFloat(getComputedStyle(marqueeTrack).gap) || 0;
-            return firstSlide.getBoundingClientRect().width + gap;
+            const slideLeft = slides.slice(0, index).reduce((offset, previousSlide) => {
+                return offset + previousSlide.getBoundingClientRect().width + gap;
+            }, 0);
+            const marqueeWidth = marquee.getBoundingClientRect().width;
+            const slideWidth = slide.getBoundingClientRect().width;
+            return slideLeft - ((marqueeWidth - slideWidth) / 2);
         }
 
         function goToPhoto(index, animate = true) {
             marqueeTrack.style.transition = animate ? `transform ${transitionMs}ms ease` : 'none';
-            marqueeTrack.style.transform = `translateX(${-index * slideStep()}px)`;
+            marqueeTrack.style.transform = `translateX(${-slideCenterOffset(index)}px)`;
         }
 
         function movePhoto(direction) {
-            if (direction < 0 && photoIndex === 0) {
-                photoIndex = originalSlides.length;
-                goToPhoto(photoIndex, false);
-                marqueeTrack.offsetHeight;
-            }
-
             photoIndex += direction;
             goToPhoto(photoIndex);
 
-            if (photoIndex === originalSlides.length) {
+            if (photoIndex >= originalSlides.length * 2) {
                 setTimeout(() => {
-                    photoIndex = 0;
+                    photoIndex -= originalSlides.length;
+                    goToPhoto(photoIndex, false);
+                }, transitionMs);
+            }
+
+            if (photoIndex < originalSlides.length) {
+                setTimeout(() => {
+                    photoIndex += originalSlides.length;
                     goToPhoto(photoIndex, false);
                 }, transitionMs);
             }
@@ -126,7 +143,21 @@ document.addEventListener('DOMContentLoaded', function () {
             marqueeNext.addEventListener('click', () => movePhotoManually(1));
         }
 
-        window.addEventListener('resize', () => goToPhoto(photoIndex, false));
+        function centerCurrentPhoto() {
+            goToPhoto(photoIndex, false);
+        }
+
+        const carouselImages = Array.from(marqueeTrack.querySelectorAll('img'));
+        Promise.all(carouselImages.map((image) => {
+            if (image.complete) return Promise.resolve();
+            return new Promise((resolve) => {
+                image.addEventListener('load', resolve, { once: true });
+                image.addEventListener('error', resolve, { once: true });
+            });
+        })).then(centerCurrentPhoto);
+
+        window.addEventListener('resize', centerCurrentPhoto);
+        centerCurrentPhoto();
         scheduleNextPhoto();
     }
 
@@ -327,17 +358,17 @@ const translations = {
         'nav_poster': 'Poster',
         'nav_org': 'Organization',
         'home_itcs_intro_title': 'About ITCS',
-        'home_itcs_intro_content': 'The Institute for Theoretical Computer Science (ITCS) is an academic unit at the Shanghai University of Finance and Economics (SUFE) with the goal of creating a world-class environment for diverse research in theoretical computer science. Shanghai University of Finance and Economics is a top-ranked research university specializing in the areas of economics, finance, and business. In recent years, SUFE has been continuously expanding into fundamental disciplines related to finance and economics, among which computer science and ITCS is one of the university’s top priorities. Founded in 2016, ITCS is now celebrating its 10th anniversary.',
+        'home_itcs_intro_content': 'The Institute for Theoretical Computer Science (ITCS) is an academic unit at Shanghai University of Finance and Economics (SUFE), established to foster world-class research in theoretical computer science. SUFE is a leading research university with strengths in economics, finance, and business. In recent years, the university has continued to expand its investment in foundational disciplines connected to finance and economics, with computer science and ITCS among its strategic priorities. Founded in 2016, ITCS is now celebrating its 10th anniversary.',
         'home_anniversary_intro_title': '10th Anniversary Celebration',
-        'home_anniversary_intro_content': 'On June 18, 2016, the Institute for Theoretical Computer Science (ITCS) at Shanghai University of Finance and Economics was officially established. In 2026, we welcome the center\'s 10th anniversary. To celebrate this important moment, we will hold a series of academic activities and seminars to review past achievements and look forward to future development.',
+        'home_anniversary_intro_content': 'The Institute for Theoretical Computer Science (ITCS) at Shanghai University of Finance and Economics was officially established on June 18, 2016. In 2026, ITCS marks its 10th anniversary. This workshop brings together researchers and students to reflect on the institute\'s development, celebrate its achievements, and discuss future directions in theoretical computer science.',
 
         'section_research': 'Research',
-        'research_content_1': 'Research at ITCS span core problems in theoretical computer science and interdisciplinary topics through the lenses of theoretical computer science. Our work on fundamental problems in algorithms and complexity include classification of computational tasks through dichotomy theorems, as well as design and analysis of approximation algorithms.',
-        'research_content_2': 'In social sciences and Economics, our work spans a variety of topics in mechanism design and areas of computational game theory. In natural sciences, our work on computational physics concerns theoretical analysis of phase transition in complex networks. Our research contributes to the areas of machine learning, information theory, and operations research and is directly related to practical problems in engineering and information technology.',
+        'research_content_1': 'Research at ITCS spans core problems in theoretical computer science as well as interdisciplinary topics studied through a theoretical computer science perspective. Our work on algorithms and complexity includes the classification of computational tasks through dichotomy theorems, together with the design and analysis of approximation algorithms.',
+        'research_content_2': 'In the social sciences and economics, our work covers mechanism design and computational game theory. In the natural sciences, our research in computational physics studies the theoretical analysis of phase transitions in complex networks. ITCS research also contributes to machine learning, information theory, and operations research, with connections to practical problems in engineering and information technology.',
 
         'section_contact_directions': 'Contact & Directions',
         'address_title': 'Address',
-        'address_details': 'Institute for Theoretical Computer Science<br>School of Information Management & Engineering<br>Shanghai University of Finance & Economics<br>No.100 Wudong Road, Yangpu District, Shanghai 200433, China<br>Telephone: 86-21-65901160<br>Email: itcs(AT)mail.shufe.edu.cn',
+        'address_details': 'Institute for Theoretical Computer Science<br>School of Information Management and Engineering<br>Shanghai University of Finance and Economics<br>No. 100 Wudong Road, Yangpu District, Shanghai 200433, China<br>Telephone: 86-21-65901160<br>Email: itcs(AT)mail.shufe.edu.cn',
 
         'directions_title': 'Directions to Wudong Campus, SUFE',
         'directions_pudong_title': 'Directions from Pudong Airport:',
@@ -350,9 +381,9 @@ const translations = {
         'section_contact': 'Contact Us',
         'contact_email': 'Contact Email: liang.huili@mail.shufe.edu.cn',
         'section_background': 'Background',
-        'background_content': 'On June 18, 2016, the Institute for Theoretical Computer Science (ITCS) at Shanghai University of Finance and Economics was officially established, and it has now been ten years. On the occasion of this 10th anniversary celebration, the center is holding a theoretical computer science symposium, inviting friends old and new to gather and exchange ideas, and to celebrate ITCS\'s tenth birthday together!',
+        'background_content': 'The Institute for Theoretical Computer Science (ITCS) at Shanghai University of Finance and Economics was officially established on June 18, 2016. To mark its 10th anniversary, ITCS is organizing a workshop in theoretical computer science, bringing together colleagues, collaborators, and students to exchange ideas and celebrate a decade of research and community building.',
         'event_date': '📅 Date: June 19-21, 2026',
-        'event_location': '📍 Location: First Floor, Research Laboratory Building, Wudong Road Campus, Shanghai University of Finance and Economics, Yangpu District, Shanghai',
+        'event_location': '📍 Venue: First Floor, Research Laboratory Building, Wudong Road Campus, Shanghai University of Finance and Economics, Yangpu District, Shanghai',
         'schedule_title': 'Schedule (June 19-21, 2026)',
         'day1_label': 'June 19 Morning',
         'table_time': 'Time',
@@ -400,11 +431,11 @@ const translations = {
         'lect_2': '(2) 09:40-10:10 Lie He (Shanghai University of Finance and Economics)',
         'lect_3': '(3) 11:00-11:30 Xuan Wu (Nanyang Technological University)',
         'lect_4': '(4) 11:30-12:00 Shaofeng Jiang (Peking University)',
-        'bio_jiang_shaofeng': 'Dr. Shaofeng Jiang is currently an Assistant Professor at the Center on Frontiers of Computing Studies, Peking University, and a Boya Young Scholar. He received his Ph.D. from the University of Hong Kong and served as a Postdoctoral Researcher and Assistant Professor at the Weizmann Institute of Science (Israel) and Aalto University (Finland). His research interests include theoretical computer science, focusing on big data algorithms, approximation algorithms, and online algorithms for combinatorial optimization problems. He has published multiple papers in top TCS journals and conferences such as SICOMP, TALG, STOC, FOCS, and SODA.',
+        'bio_jiang_shaofeng': 'Shaofeng Jiang is an Assistant Professor at the Center on Frontiers of Computing Studies, Peking University, and a Boya Young Scholar. He received his Ph.D. from the University of Hong Kong and served as a postdoctoral researcher and assistant professor at the Weizmann Institute of Science and Aalto University. His research interests lie in theoretical computer science, with a focus on big-data algorithms, approximation algorithms, and online algorithms for combinatorial optimization. His work has appeared in leading TCS journals and conferences, including SICOMP, TALG, STOC, FOCS, and SODA.',
         'day1_afternoon': 'June 14 Afternoon',
         'lect_5': '(5) 14:00-14:30 Ran Duan (Tsinghua University)',
         'lect_6': '(6) 14:30-15:00 Yijia Chen (Shanghai Jiao Tong University)',
-        'bio_chen_yijia': 'Yijia Chen is currently a Professor at the Department of Computer Science, Shanghai Jiao Tong University. He obtained his Ph.D. in Software Theory from Shanghai Jiao Tong University and his Ph.D. in Mathematics from the University of Freiburg. His main research interests are in the intersection of computer science and mathematics, including logic, algorithms, and computational complexity.',
+        'bio_chen_yijia': 'Yijia Chen is a Professor in the Department of Computer Science at Shanghai Jiao Tong University. He received his Ph.D. in software theory from Shanghai Jiao Tong University and his Ph.D. in mathematics from the University of Freiburg. His research interests lie at the intersection of computer science and mathematics, including logic, algorithms, and computational complexity.',
         'lect_7': '(7) 15:00-15:30 Han Zhao (University of Illinois Urbana-Champaign)',
         'lect_8': '(8) 16:30-17:00 Xiao Liang (The Chinese University of Hong Kong)',
         'lect_9': '(9) 17:00-17:30 Yuan Li (Fudan University)',
@@ -417,7 +448,7 @@ const translations = {
         'lect_14': '(14) 11:30-12:00 Yaonan Jin (Huawei)',
         'section_organization': 'Organization',
         'host_unit': 'Organizer: Institute for Theoretical Computer Science (ITCS), Shanghai University of Finance and Economics',
-        'co_host_unit': 'Co-organizer: Key Laboratory of Interdisciplinary Sciences in Economics and Mathematics (Ministry of Education)',
+        'co_host_unit': 'Co-organizer: Key Laboratory of Computational Economics and Interdisciplinary Sciences',
         'contact_email': 'Contact: liang.huili@sufe.edu.cn'
     },
     'zh': {
@@ -526,7 +557,7 @@ const translations = {
         'lect_14': '（十四）11:30-12:00 金耀楠（华为）',
         'section_organization': '组织机构',
         'host_unit': '承办单位：上海财经大学理论计算机科学研究中心（ITCS）',
-        'co_host_unit': '承办单位：计算经济交叉科学教育部重点实验室',
+        'co_host_unit': '协办单位：计算经济交叉科学教育部重点实验室',
         'contact_email': '联系邮箱：liang.huili@sufe.edu.cn'
     }
 };

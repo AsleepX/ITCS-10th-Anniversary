@@ -10,8 +10,8 @@ The following people were not added to the Speaker section because at least one 
 | 张驰豪 | 上海交通大学 | Present | Discrete Optimal Transport and Its Applications in Sampling | Missing | Abstract |
 | Richard | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
 | jannik | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
-| 滕尚华 | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
 | 蔡进一 | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
 | Nick Harvey | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
 | Kaito Fujii | Kyoto University | Missing | Bayes correlated equilibria and no-regret dynamics | Present | Bio |
-| Sai Ganesh Nagarajan | Missing | Missing | Missing | Present | Affiliation, Bio, Title |
+| Sai Ganesh Nagarajan | Missing | Missing | Present | Present | Affiliation, Bio |
+| Ioannis Panageas | Missing | Missing | Present | Present | Affiliation, Bio |

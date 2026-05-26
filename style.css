@@ -311,10 +311,24 @@ body {
 /* --- Header --- */
 .main-header {
     margin-top: var(--nav-height);
-    padding: 100px 20px 80px;
+    padding: 100px 20px 34px;
     text-align: center;
     background: radial-gradient(circle at center, rgba(44, 62, 80, 0.02) 0%, transparent 70%);
     position: relative;
+}
+
+.hero-title-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.hero-itcs-logo {
+    display: inline-block;
+    width: clamp(58px, 6vw, 84px);
+    height: auto;
+    flex: 0 0 auto;
 }
 
 h1#home {
@@ -355,8 +369,8 @@ h1#home {
 }
 
 .photo-marquee {
-    width: min(1080px, calc(100vw - 40px));
-    margin: 38px auto 0;
+    width: min(1160px, calc(100vw - 40px));
+    margin: 34px auto 0;
     overflow: hidden;
     border-top: 1px solid var(--line-color);
     border-bottom: 1px solid var(--line-color);
@@ -393,8 +407,8 @@ h1#home {
 }
 
 .photo-marquee figure {
-    width: clamp(260px, 30vw, 420px);
-    height: clamp(150px, 17vw, 230px);
+    width: auto;
+    height: clamp(230px, 26vw, 360px);
     margin: 0;
     position: relative;
     flex: 0 0 auto;
@@ -414,9 +428,10 @@ h1#home {
 
 .photo-marquee img {
     display: block;
-    width: 100%;
+    width: auto;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #fff;
 }
 
 .photo-marquee figcaption {
@@ -577,6 +592,12 @@ p {
     text-align: justify;
     color: var(--text-main);
     font-weight: 300;
+}
+
+html[lang="en"] p,
+html[lang="en"] .info-list li,
+html[lang="en"] .poster-content li {
+    font-weight: 350;
 }
 
 /* --- Schedule Components --- */
@@ -745,7 +766,15 @@ tr:first-child th {
     }
 
     .main-header {
-        padding: 60px 20px 50px;
+        padding: 60px 20px 34px;
+    }
+
+    .hero-title-row {
+        gap: 12px;
+    }
+
+    .hero-itcs-logo {
+        width: 48px;
     }
 
     h1#home {
@@ -852,6 +881,10 @@ tr:first-child th {
     .time-cell {
         color: var(--accent-color);
     }
+}
+
+#background h2 {
+    margin-top: 14px;
 }
 
 html[lang="en"] .lang-zh,
@@ -977,6 +1010,30 @@ html[lang="zh"] .lang-en {
     color: #fff;
 }
 
+.organization-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.organization-text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.organization-qr {
+    flex: 0 0 auto;
+    margin: 0;
+    text-align: right;
+}
+
+.organization-qr img {
+    display: block;
+    width: min(180px, 48vw);
+    height: auto;
+    margin: 0;
+}
+
 @media (max-width: 768px) {
     html[lang="en"] td:nth-of-type(1)::before {
         content: "Time: ";
@@ -1001,7 +1058,7 @@ html[lang="zh"] .lang-en {
 
     .photo-marquee {
         width: min(100%, calc(100vw - 24px));
-        margin-top: 28px;
+        margin-top: 24px;
     }
 
     .photo-marquee-track {
@@ -1009,14 +1066,26 @@ html[lang="zh"] .lang-en {
     }
 
     .photo-marquee figure {
-        width: 260px;
-        height: 150px;
+        height: 225px;
     }
 
     .photo-nav {
         width: 34px;
         height: 34px;
         font-size: 1.7rem;
+    }
+
+    .organization-content {
+        display: block;
+    }
+
+    .organization-qr {
+        margin: 28px auto 0;
+        text-align: center;
+    }
+
+    .organization-qr img {
+        margin: 0 auto;
     }
 
     .venue-gallery {

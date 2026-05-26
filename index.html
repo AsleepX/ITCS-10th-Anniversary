@@ -55,7 +55,10 @@
         </div>
     </nav>
     <header class="main-header">
-        <h1 id="home">ITCS Workshop</h1>
+        <div class="hero-title-row">
+            <img class="hero-itcs-logo" src="img/icons/logo.png" alt="ITCS logo">
+            <h1 id="home">ITCS Workshop</h1>
+        </div>
         <div class="subtitle"><span class="anniv-number">10</span><span class="anniv-suffix">th</span> Anniversary Celebration</div>
         <div class="photo-marquee" aria-label="ITCS workshop group photos from 2025 to 2016">
             <button class="photo-nav photo-nav-prev" type="button" aria-label="Previous photo">‹</button>
@@ -63,11 +66,9 @@
                 <figure><img src="img/workshop-photos/web/2025-itcs-workshop.jpg" alt="ITCS Workshop 2025 group photo"><figcaption>2025</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2025-hcp.jpg" alt="HCP 2025 group photo"><figcaption>2025</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2024-itcs-wide.jpg" alt="ITCS 2024 group photo"><figcaption>2024</figcaption></figure>
-                <figure><img src="img/workshop-photos/web/2024-itcs.jpg" alt="ITCS 2024 group photo"><figcaption>2024</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2023-itcs.jpg" alt="ITCS 2023 group photo"><figcaption>2023</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2022-itcs.jpg" alt="ITCS 2022 group photo"><figcaption>2022</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2021-itcs-workshop.jpg" alt="ITCS Workshop 2021 group photo"><figcaption>2021</figcaption></figure>
-                <figure><img src="img/workshop-photos/web/2021-itcs.jpg" alt="ITCS 2021 group photo"><figcaption>2021</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2020-itcs.jpg" alt="ITCS 2020 group photo"><figcaption>2020</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2019-itcs-1.jpg" alt="ITCS 2019 group photo"><figcaption>2019</figcaption></figure>
                 <figure><img src="img/workshop-photos/web/2019-itcs-2.jpg" alt="ITCS 2019 group photo"><figcaption>2019</figcaption></figure>
@@ -79,11 +80,9 @@
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2025-itcs-workshop.jpg" alt=""><figcaption>2025</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2025-hcp.jpg" alt=""><figcaption>2025</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2024-itcs-wide.jpg" alt=""><figcaption>2024</figcaption></figure>
-                <figure aria-hidden="true"><img src="img/workshop-photos/web/2024-itcs.jpg" alt=""><figcaption>2024</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2023-itcs.jpg" alt=""><figcaption>2023</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2022-itcs.jpg" alt=""><figcaption>2022</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2021-itcs-workshop.jpg" alt=""><figcaption>2021</figcaption></figure>
-                <figure aria-hidden="true"><img src="img/workshop-photos/web/2021-itcs.jpg" alt=""><figcaption>2021</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2020-itcs.jpg" alt=""><figcaption>2020</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2019-itcs-1.jpg" alt=""><figcaption>2019</figcaption></figure>
                 <figure aria-hidden="true"><img src="img/workshop-photos/web/2019-itcs-2.jpg" alt=""><figcaption>2019</figcaption></figure>
@@ -105,7 +104,6 @@
     </div>
     <div class="content">
         <section id="background">
-        <div style="height: 50px;"></div>
         <h2 data-i18n="section_background">活动背景</h2>
         <p data-i18n="background_content">
             2016年6月18日，上海财经大学理论计算机科学研究中心 (ITCS) 正式成立，转眼已迎来十周年。值此周年庆典之际，中心特举办理论计算机学术研讨会，诚邀各位新老朋友相聚交流，共同庆祝ITCS的十岁生日！
@@ -198,6 +196,18 @@
             <h2 data-i18n="section_speakers">主讲嘉宾</h2>
 
             <article class="speaker-card">
+                <h3><span class="lang-zh">滕尚华</span><span class="lang-en">Shang-Hua Teng</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">南加州大学</span><span class="lang-en">University of Southern California</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: P+P ≧ PSPACE: Deep Logic, Strategic Losing, and Game Secrets</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>A combinatorial game is defined by a succinct ruleset specifying game positions and the set of feasible options each player can move to from every position. In the normal-play setting, two players take turns advancing the game, and the player who is forced to play at a terminal position, a position with no feasible options, loses the game. Playing combinatorial games optimally usually requires deep strategic reasoning about long alternation down to the last level of their game trees and is typically PSPACE-hard. In Combinatorial Game Theory (CGT), the disjunctive sum (or sum for short) of any two games G and H, denoted by G + H, is a game in which the next player chooses to make a move in exactly one of G and H, leaving the other alone.</p>
+                <p>In this talk, we show that the sum of two polynomial-time solvable games can be PSPACE-hard. In other words, we prove P+P ≧ PSPACE when P and PSPACE, respectively, represent the families of polynomial-time and polynomial-space solvable games, and + denotes the disjunctive sum. Our result has computational implications for classical Sprague-Grundy Theory (1930s), which shows that the Grundy value, a concept generalizing winnability, of the disjunctive sum of any two impartial games can be computed in polynomial time from their Grundy values. In contrast, we prove that, assuming PSPACE ≠ P, there is no general polynomial-time method to summarize two polynomial-time solvable impartial games to efficiently solve their disjunctive sum. Our results settle two long-standing complexity-theoretical questions, open since 1981 and 1993 in CGT, concerning the computational complexity of strategic losing for the goal of winning the overall sum game. I will also draw a connection between our main theorem and a famous Chinese idiom, in honor of the legendary strategist in Chinese history, 諸葛亮 (Zhuge Liang), who is beautifully depicted in the classic novel 三國演義 (The Romance of the Three Kingdoms).</p>
+                <p>Joint work with Kyle Burke (Florida Southern College) and Matt Ferland (Dickinson College).</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Shang-Hua Teng is a USC University Professor of Computer Science and Mathematics. He is a fellow of SIAM, ACM, and the Alfred P. Sloan Foundation, and has twice won the Gödel Prize: first in 2008 for developing smoothed analysis, and then in 2015 for designing the breakthrough scalable Laplacian solver. Citing him as “one of the most original theoretical computer scientists in the world,” the Simons Foundation named him a 2014 Investigator to pursue long-term curiosity-driven fundamental research. He also received the 2009 Fulkerson Prize, the 2023 Science &amp; Technology Award for Overseas Chinese from the China Computer Federation, the 2021 and 2025 ACM STOC Test of Time Awards (for smoothed analysis and max-flow computation), and the 2022 ACM SIGecom Test of Time Award (for settling the complexity of computing a Nash equilibrium). In addition, he co-developed the first optimal well-shaped Delaunay mesh generation algorithms for arbitrary three-dimensional domains, settled the Rousseeuw-Hubert regression-depth conjecture in robust statistics, and resolved two long-standing complexity-theoretical questions regarding the Sprague-Grundy theorem in combinatorial game theory. For his industry work with Xerox, NASA, Intel, IBM, Akamai, and Microsoft, he received fifteen patents in areas including compiler optimization, Internet technology, and social networks, and was recently named a fellow of the National Academy of Inventors.</p>
+            </article>
+
+            <article class="speaker-card">
                 <h3><span class="lang-zh">丁虎</span><span class="lang-en">Hu Ding</span></h3>
                 <p class="speaker-affiliation"><span class="lang-zh">中国科学技术大学</span><span class="lang-en">University of Science and Technology of China</span></p>
                 <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: <span class="lang-zh">关于Gromov-Wasserstein 问题的最新进展</span><span class="lang-en">Recent Progress on the Gromov-Wasserstein Problem</span></p>
@@ -210,45 +220,10 @@
             </article>
 
             <article class="speaker-card">
-                <h3><span class="lang-zh">冯逸丁</span><span class="lang-en">Yiding Feng</span></h3>
-                <p class="speaker-affiliation"><span class="lang-zh">香港科技大学</span><span class="lang-en">Hong Kong University of Science and Technology</span></p>
-                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Strengthening Bulow-Klemperer-Style Results for Multi-Unit Auctions</p>
+                <h3><span class="lang-zh">Ioannis Panageas</span><span class="lang-en">Ioannis Panageas</span></h3>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: The Computational Landscape of Avoiding Saddle Points: From Dynamics to Computational Complexity</p>
                 <h4 data-i18n="label_abstract">摘要</h4>
-                <p>The classic result of Bulow and Klemperer (1996) shows that in multi-unit auctions with m units and n≥m buyers whose values are sampled i.i.d. from a regular distribution, the revenue of the VCG auction with m additional buyers is at least as large as the optimal revenue. Unfortunately, for regular distributions, adding m additional buyers is sometimes indeed necessary, so the "competition complexity" of the VCG auction is m. We seek proving better competition complexity results in two dimensions. First, under stronger distributional assumptions, the competition complexity of VCG auction drops dramatically. In balanced markets (where m=n) with MHR distributions, it is sufficient to only add 0.4447n additional buyers to match the optimal revenue -- less than half the number that is necessary under regularity -- and this bound is asymptotically tight. We provide both exact finite-market results for small value of n, and closed-form asymptotic formulas for general market with any m≤n, and any target fraction of the optimal revenue. Second, we analyze a supply-limiting variant of VCG auction that caps the number of units sold in a prior-independent way. Whenever the goal is to achieve almost the optimal revenue, this mechanism strictly improves upon standard VCG auction, requiring significantly fewer additional buyers.</p>
-                <h4 data-i18n="label_bio">个人简介</h4>
-                <p>Yiding Feng is an Assistant Professor in the Department of Industrial Engineering and Decision Analytics at the Hong Kong University of Science and Technology (HKUST). Prior to joining HKUST, he was a Principal Researcher at the University of Chicago Booth School of Business and a Postdoctoral Researcher at Microsoft Research New England. He received his Ph.D. in Computer Science from Northwestern University in 2021 and his B.S. from the ACM Honors Class at Shanghai Jiao Tong University in 2016. His research interests lie at the intersection of operations research, economics and computation, and theoretical computer science. His work has been published in leading journals such as Management Science and Operations Research, as well as top theoretical computer science and economics conferences including STOC, FOCS, SODA, EC, ITCS, and WINE.</p>
-            </article>
-
-            <article class="speaker-card">
-                <h3><span class="lang-zh">黄志毅</span><span class="lang-en">Zhiyi Huang</span></h3>
-                <p class="speaker-affiliation"><span class="lang-zh">香港大学</span><span class="lang-en">The University of Hong Kong</span></p>
-                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Calibeating Made Simple</p>
-                <h4 data-i18n="label_abstract">摘要</h4>
-                <p>We study calibeating, the problem of post-processing external forecasts online to minimize cumulative losses and match an informativeness-based benchmark. Unlike prior work, which analyzed calibeating for specific losses with specific arguments, we reduce calibeating to existing online learning techniques and obtain results for general proper losses. We show that calibeating is minimax-equivalent to regret minimization, recover the O(logT) rate for the Brier and log losses, obtain new optimal rates for mixable and bounded losses, and prove that multi-calibeating is minimax-equivalent to the combination of calibeating and the classical expert problem. We also obtain new bounds for achieving calibeating and calibration simultaneously for the Brier loss.</p>
-                <h4 data-i18n="label_bio">个人简介</h4>
-                <p>I am a Professor and the Head of Computer Science at the School of Computing and Data Science, the University of Hong Kong. I work broadly on algorithms, focusing on the role of information and uncertainty in computation. I am interested in algorithms for sequential decision-making under uncertainty, learning based on different forms of information, incentivizing self-interested agents to share private information, and disclosing one kind of information while keeping the other confidential.</p>
-            </article>
-
-            <article class="speaker-card">
-                <h3><span class="lang-zh">刘正阳</span><span class="lang-en">Zhengyang Liu</span></h3>
-                <p class="speaker-affiliation"><span class="lang-zh">北京理工大学</span><span class="lang-en">Beijing Institute of Technology</span></p>
-                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Computing Exact Second-Price Pacing Equilibria with Few Agents or Goods</p>
-                <h4 data-i18n="label_abstract">摘要</h4>
-                <p>Second-price pacing equilibria (SPPE) play a foundational role in modern online advertising auctions. However, computing or even approximating SPPE is known to be PPAD-hard in general. In this talk, we present a unified algorithmic framework that overcomes this computational barrier, yielding polynomial-time algorithms for exactly computing SPPEs in two natural, restricted market settings: instances with a constant number of buyers or a constant number of goods. Our algorithms heavily rely on a cell-decomposition approach. This is joint work with Yonglei Yan, Yiyang Huang, and Zihe Wang.</p>
-                <h4 data-i18n="label_bio">个人简介</h4>
-                <p class="lang-zh">刘正阳，北京理工大学计算机学院长聘副教授、博士生导师。主要研究方向为算法博弈论，在相关领域国际顶级期刊和会议发表论文20余篇。主持国家自然科学基金青年项目、面上项目。现任中国运筹学会博弈论分会理事，中国计算机学会理论计算机科学专委会、计算经济学专委会执行委员。</p>
-                <p class="lang-en">Zhengyang Liu is a tenured associate professor and doctoral advisor at the School of Computer Science, Beijing Institute of Technology. His research focuses on algorithmic game theory. He has published more than 20 papers in leading journals and conferences, led National Natural Science Foundation of China projects, and serves in several professional committees in game theory, theoretical computer science, and computational economics.</p>
-            </article>
-
-            <article class="speaker-card">
-                <h3><span class="lang-zh">王子贺</span><span class="lang-en">Zihe Wang</span></h3>
-                <p class="speaker-affiliation"><span class="lang-zh">中国人民大学</span><span class="lang-en">Renmin University of China</span></p>
-                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Second-Best Bilateral Trade is 1/2 Efficient</p>
-                <h4 data-i18n="label_abstract">摘要</h4>
-                <p>The landmark Myerson-Satterthwaite Theorem establishes a fundamental impossibility in bilateral trade: no Bayesian incentive-compatible mechanism can simultaneously achieve ex-post efficiency, individual rationality, and strong budget balance. We resolve a long-standing open question regarding the efficiency loss imposed by these constraints. Specifically, we prove that the Bayesian-optimal second-best mechanism always captures at least half of the first-best gains from trade, SB &gt;= 0.5 * FB. This result is tight, definitively closing the gap between the previously best-known bounds of 0.317 and 0.736.</p>
-                <h4 data-i18n="label_bio">个人简介</h4>
-                <p class="lang-zh">王子贺，中国人民大学预聘副教授。本科就读于清华大学计算机科学实验班，2016年在清华大学获博士学位，博士导师为唐平中和姚期智，毕业后在上海财经大学工作4年，后加入中国人民大学高瓴人工智能学院。研究兴趣为理论计算机与经济学的交叉学科，如博弈论、机制设计、算法设计等。</p>
-                <p class="lang-en">Zihe Wang is an assistant professor at Renmin University of China. He studied in the computer science experimental class at Tsinghua University and received his Ph.D. from Tsinghua in 2016, advised by Pingzhong Tang and Andrew Chi-Chih Yao. After four years at Shanghai University of Finance and Economics, he joined the Gaoling School of Artificial Intelligence at Renmin University. His research interests include the intersection of theoretical computer science and economics, including game theory, mechanism design, and algorithm design.</p>
+                <p>The escape from undesirable strict saddle points has been a central challenge in non-convex optimization for over a decade, particularly within the context of training modern machine learning models. While earlier research focused on establishing that first-order methods almost always avoid such points, mainly in unconstrained settings, the exact computational complexity of finding second-order stationary points (SOSPs) has remained a nuanced problem. This talk bridges the gap between the dynamics of local search and the formal complexity classes of $TFNP$. We present recent results showing that finding an $\epsilon$-SOSP over polytope constraints is $PLS$-complete. This result is surprising, as it holds even for remarkably simple domains, such as the two-dimensional unit square $[0,1]^2$. Crucially, we establish a fundamental barrier: unless $PLS \subseteq PPAD$, there can be no deterministic, iterative algorithm with a computationally efficient, continuous update rule for finding approximate SOSPs in constrained settings. This stands in stark contrast to finding first-order KKT points, a task known to be $CLS$-complete and one where gradient descent is guaranteed to succeed. We will discuss the implications of this “discreteness” in the complexity of second-order optimization and what it means for the future of continuous local search algorithms.</p>
             </article>
 
             <article class="speaker-card">
@@ -264,33 +239,13 @@
             </article>
 
             <article class="speaker-card">
-                <h3><span class="lang-zh">陈翌佳</span><span class="lang-en">Yijia Chen</span></h3>
-                <p class="speaker-affiliation"><span class="lang-zh">上海交通大学</span><span class="lang-en">Shanghai Jiao Tong University</span></p>
-                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Homomorphism Counts on CFI-graphs</p>
-                <h4 data-i18n="label_abstract">摘要</h4>
-                <p>The CFI-graphs, named after Cai, Fürer, and Immerman, are central to the study of graph isomorphism testing and of first-order logic with counting. Although discovered more than three decades ago, they still find novel applications in many important areas in computer science. In this talk, I will discuss recent results which shed some new light on the CFI-graphs through the lens of homomorphism counts. Among others, this yields a new proof that the minimum dimension of a Weisfeiler-Leman algorithm which distinguishes two CFI-graphs is precisely the tree-width of the base graphs.</p>
-                <h4 data-i18n="label_bio">个人简介</h4>
-                <p>Yijia Chen is a professor of Computer Science at Shanghai Jiao Tong University. He received his PhD degree in computer science from Shanghai Jiao Tong University and PhD degree in mathematics from University of Freiburg. He mainly works in logic in computer science, computational complexity, and algorithmic graph theory. He serves at the editorial board of Logic Methods in Computer Science and of Theory of Computing Systems.</p>
-            </article>
-
-            <article class="speaker-card">
                 <h3><span class="lang-zh">张梦晓</span><span class="lang-en">Mengxiao Zhang</span></h3>
                 <p class="speaker-affiliation"><span class="lang-zh">爱荷华大学</span><span class="lang-en">University of Iowa</span></p>
                 <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Near-Optimal Last-Iterate Convergence for Zero-Sum Games with Bandit Feedback and Opponent Actions</p>
                 <h4 data-i18n="label_abstract">摘要</h4>
                 <p>Last-iterate convergence of learning dynamics in games has attracted significant recent attention. In two-player zero-sum games with bandit feedback, Fiegel et al. [2025] show a separation between average-iterate and last-iterate convergence in duality gap. However, in many practical settings, the players observe not only their loss but also the opponent's action. We show that t^{-1/2} last-iterate convergence is achievable with high probability in this setting via an efficient algorithm that updates its strategy infrequently by solving an estimated log-barrier regularized game. We identify obstacles preventing standard multi-armed bandit analysis from generalizing to games and develop a new analysis to overcome them. Experiments confirm faster convergence than baselines and prior methods that do not exploit opponent-action feedback.</p>
                 <h4 data-i18n="label_bio">个人简介</h4>
-                <p>Mengxiao Zhang is an assistant professor at the Business Analytics Department at University of Iowa. He obtained a PhD degree in Computer Science at University of Southern California advised by Prof. Haipeng Luo. His research is about designing robust and adaptive machine learning algorithms with strong theoretical guarantees, with a focus on general sequential learning problems, including online learning, bandit problems, game theory and various operational research and revenue management applications.</p>
-            </article>
-
-            <article class="speaker-card">
-                <h3><span class="lang-zh">唐伟</span><span class="lang-en">Wei Tang</span></h3>
-                <p class="speaker-affiliation"><span class="lang-zh">香港中文大学</span><span class="lang-en">The Chinese University of Hong Kong</span></p>
-                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Refinement as a Service: Algorithmic Predictor Refinement</p>
-                <h4 data-i18n="label_abstract">摘要</h4>
-                <p>Prediction aggregation aims to combine information from multiple predictors into a more informative one. We study this question in the setting of calibrated predictors, where each prediction must equal the conditional expectation of the quantity being predicted given the predictor's signal. Given several calibrated input predictors and the feature distribution, but not the underlying Bayes probabilities, we ask when one can construct refined calibrated predictors that preserve the information in the original predictors and cannot be further refined using the available information. We formulate calibrated predictors as signaling schemes and define refinement through feature-independent garblings. Under this formulation, deterministic output refinement has a polynomial-time algorithm for two input predictors and is NP-hard for arbitrarily many, while randomized output predictors admit a polynomial-time algorithm for any number of inputs.</p>
-                <h4 data-i18n="label_bio">个人简介</h4>
-                <p>Wei Tang is an assistant professor in the Department of Decisions, Operations and Technology at the Chinese University of Hong Kong. Before this, he was a postdoctoral fellow at the Data Science Institute, Columbia University. He completed his Ph.D. in Computer Science at Washington University in St. Louis, and received his bachelor's degree from Tianjin University. He is interested in the theoretical aspects of agentic decision-making, where humans, algorithms, or both act as decision-makers.</p>
+                <p>Mengxiao Zhang is an assistant professor in the Department of Business Analytics at the University of Iowa. He received his Ph.D. in computer science from the University of Southern California, advised by Haipeng Luo. His research focuses on the design of robust and adaptive machine learning algorithms with strong theoretical guarantees, with an emphasis on sequential learning problems, including online learning, bandit problems, game theory, and applications in operations research and revenue management.</p>
             </article>
 
             <article class="speaker-card">
@@ -302,6 +257,75 @@
                 <h4 data-i18n="label_bio">个人简介</h4>
                 <p>Nairen Cao is a Faculty Fellow at NYU Tandon School of Engineering working in theoretical computer science. His research lies in algorithm design and analysis, with a particular focus on parallel and distributed algorithms for graph problems and combinatorial optimization. He has worked on topics including shortest paths, correlation clustering, and related problems in modern parallel models. His papers have appeared in venues such as STOC, SODA, SPAA, PODC, ESA, and ICALP, and his work received Outstanding Paper Awards at SPAA in 2022 and 2023.</p>
             </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">Sai Ganesh Nagarajan</span><span class="lang-en">Sai Ganesh Nagarajan</span></h3>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: The Complexity of Two-Team Polymatrix Games with Independent Adversaries</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>Adversarial multiplayer games are an important object of study in multiagent learning. In particular, polymatrix zero-sum games are a multiplayer setting where Nash equilibria are known to be efficiently computable. Towards understanding the limits of tractability in polymatrix games, we study the computation of Nash equilibria in such games where each pair of players plays either a zero-sum or a coordination game. A setting that is particularly interesting is where players can be grouped into a small number of teams of identical interest [Von Stengel and Koller 1997]. While the three-team version of the problem is known to be PPAD-complete, the complexity for two teams has remained open [Cai and Daskalakis 2011]. In this talk, we show that the two-team version is CLS-hard, by proving the hardness of finding any stationary point in the simplest type of non-convex-concave min-max constrained optimization problem, namely for a class of bilinear polynomial objective functions. Finally, we discuss some algorithms for a restricted version of this problem, namely a team with non-interacting adversaries.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">唐伟</span><span class="lang-en">Wei Tang</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">香港中文大学</span><span class="lang-en">The Chinese University of Hong Kong</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Refinement as a Service: Algorithmic Predictor Refinement</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>Prediction aggregation aims to combine information from multiple predictors into a more informative one. We study this question in the setting of calibrated predictors, where each prediction must equal the conditional expectation of the quantity being predicted given the predictor's signal. Given several calibrated input predictors and the feature distribution, but not the underlying Bayes probabilities, we ask when one can construct refined calibrated predictors that preserve the information in the original predictors and cannot be further refined using the available information. We formulate calibrated predictors as signaling schemes and define refinement through feature-independent garblings. Under this formulation, deterministic output refinement has a polynomial-time algorithm for two input predictors and is NP-hard for arbitrarily many, while randomized output predictors admit a polynomial-time algorithm for any number of inputs.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Wei Tang is an assistant professor in the Department of Decisions, Operations and Technology at The Chinese University of Hong Kong. Before joining CUHK, he was a postdoctoral fellow at the Data Science Institute, Columbia University. He received his Ph.D. in computer science from Washington University in St. Louis and his bachelor's degree from Tianjin University. His research focuses on the theoretical aspects of decision-making systems in which humans, algorithms, or both act as decision makers.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">冯逸丁</span><span class="lang-en">Yiding Feng</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">香港科技大学</span><span class="lang-en">Hong Kong University of Science and Technology</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Strengthening Bulow-Klemperer-Style Results for Multi-Unit Auctions</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>The classic result of Bulow and Klemperer (1996) shows that in multi-unit auctions with m units and n≥m buyers whose values are sampled i.i.d. from a regular distribution, the revenue of the VCG auction with m additional buyers is at least as large as the optimal revenue. Unfortunately, for regular distributions, adding m additional buyers is sometimes indeed necessary, so the "competition complexity" of the VCG auction is m. We seek proving better competition complexity results in two dimensions. First, under stronger distributional assumptions, the competition complexity of VCG auction drops dramatically. In balanced markets (where m=n) with MHR distributions, it is sufficient to only add 0.4447n additional buyers to match the optimal revenue -- less than half the number that is necessary under regularity -- and this bound is asymptotically tight. We provide both exact finite-market results for small value of n, and closed-form asymptotic formulas for general market with any m≤n, and any target fraction of the optimal revenue. Second, we analyze a supply-limiting variant of VCG auction that caps the number of units sold in a prior-independent way. Whenever the goal is to achieve almost the optimal revenue, this mechanism strictly improves upon standard VCG auction, requiring significantly fewer additional buyers.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Yiding Feng is an Assistant Professor in the Department of Industrial Engineering and Decision Analytics at the Hong Kong University of Science and Technology (HKUST). Prior to joining HKUST, he was a Principal Researcher at the University of Chicago Booth School of Business and a Postdoctoral Researcher at Microsoft Research New England. He received his Ph.D. in Computer Science from Northwestern University in 2021 and his B.S. from the ACM Honors Class at Shanghai Jiao Tong University in 2016. His research interests lie at the intersection of operations research, economics and computation, and theoretical computer science. His work has been published in leading journals such as Management Science and Operations Research, as well as top theoretical computer science and economics conferences including STOC, FOCS, SODA, EC, ITCS, and WINE.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">陈翌佳</span><span class="lang-en">Yijia Chen</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">上海交通大学</span><span class="lang-en">Shanghai Jiao Tong University</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Homomorphism Counts on CFI-graphs</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>CFI graphs, named after Cai, Fürer, and Immerman, are central to the study of graph isomorphism testing and first-order logic with counting. Although introduced more than three decades ago, they continue to find new applications across computer science. This talk discusses recent results that shed new light on CFI graphs through the lens of homomorphism counts. Among other consequences, these results yield a new proof that the minimum dimension of a Weisfeiler-Leman algorithm that distinguishes two CFI graphs is precisely the treewidth of the base graphs.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Yijia Chen is a professor of computer science at Shanghai Jiao Tong University. He received his Ph.D. in computer science from Shanghai Jiao Tong University and his Ph.D. in mathematics from the University of Freiburg. His research focuses on logic in computer science, computational complexity, and algorithmic graph theory. He serves on the editorial boards of Logic Methods in Computer Science and Theory of Computing Systems.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">刘正阳</span><span class="lang-en">Zhengyang Liu</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">北京理工大学</span><span class="lang-en">Beijing Institute of Technology</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Computing Exact Second-Price Pacing Equilibria with Few Agents or Goods</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>Second-price pacing equilibria (SPPE) play a foundational role in modern online advertising auctions. However, computing or even approximating SPPE is known to be PPAD-hard in general. In this talk, we present a unified algorithmic framework that overcomes this computational barrier, yielding polynomial-time algorithms for exactly computing SPPEs in two natural, restricted market settings: instances with a constant number of buyers or a constant number of goods. Our algorithms heavily rely on a cell-decomposition approach. This is joint work with Yonglei Yan, Yiyang Huang, and Zihe Wang.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p class="lang-zh">刘正阳，北京理工大学计算机学院长聘副教授、博士生导师。主要研究方向为算法博弈论，在相关领域国际顶级期刊和会议发表论文20余篇。主持国家自然科学基金青年项目、面上项目。现任中国运筹学会博弈论分会理事，中国计算机学会理论计算机科学专委会、计算经济学专委会执行委员。</p>
+                <p class="lang-en">Zhengyang Liu is a tenured associate professor and doctoral advisor at the School of Computer Science, Beijing Institute of Technology. His research focuses on algorithmic game theory. He has published more than 20 papers in leading journals and conferences, led National Natural Science Foundation of China projects, and serves in several professional committees in game theory, theoretical computer science, and computational economics.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">黄志毅</span><span class="lang-en">Zhiyi Huang</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">香港大学</span><span class="lang-en">The University of Hong Kong</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Calibeating Made Simple</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>We study calibeating, the problem of post-processing external forecasts online to minimize cumulative loss relative to an informativeness-based benchmark. Unlike prior work, which analyzed calibeating for specific losses using specialized arguments, we reduce calibeating to existing online learning techniques and obtain results for general proper losses. We show that calibeating is minimax-equivalent to regret minimization, recover the O(log T) rate for the Brier and log losses, obtain new optimal rates for mixable and bounded losses, and prove that multi-calibeating is minimax-equivalent to the combination of calibeating and the classical expert problem. We also obtain new bounds for achieving calibeating and calibration simultaneously for the Brier loss.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Zhiyi Huang is Professor and Head of Computer Science at the School of Computing and Data Science, the University of Hong Kong. His research broadly concerns algorithms, with a focus on the role of information and uncertainty in computation. His interests include algorithms for sequential decision-making under uncertainty, learning from different forms of information, incentivizing self-interested agents to share private information, and disclosing one type of information while keeping another confidential.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">王子贺</span><span class="lang-en">Zihe Wang</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">中国人民大学</span><span class="lang-en">Renmin University of China</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Second-Best Bilateral Trade is 1/2 Efficient</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>The landmark Myerson-Satterthwaite Theorem establishes a fundamental impossibility in bilateral trade: no Bayesian incentive-compatible mechanism can simultaneously achieve ex-post efficiency, individual rationality, and strong budget balance. We resolve a long-standing open question regarding the efficiency loss imposed by these constraints. Specifically, we prove that the Bayesian-optimal second-best mechanism always captures at least half of the first-best gains from trade, SB &gt;= 0.5 * FB. This result is tight, definitively closing the gap between the previously best-known bounds of 0.317 and 0.736.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p class="lang-zh">王子贺，中国人民大学预聘副教授。本科就读于清华大学计算机科学实验班，2016年在清华大学获博士学位，博士导师为唐平中和姚期智，毕业后在上海财经大学工作4年，后加入中国人民大学高瓴人工智能学院。研究兴趣为理论计算机与经济学的交叉学科，如博弈论、机制设计、算法设计等。</p>
+                <p class="lang-en">Zihe Wang is an assistant professor at Renmin University of China. He studied in the Computer Science Experimental Class at Tsinghua University and received his Ph.D. from Tsinghua University in 2016, advised by Pingzhong Tang and Andrew Chi-Chih Yao. After four years at Shanghai University of Finance and Economics, he joined the Gaoling School of Artificial Intelligence at Renmin University of China. His research interests lie at the intersection of theoretical computer science and economics, including game theory, mechanism design, and algorithm design.</p>
+            </article>
         </div>
 
         <div class="register" id="register">
@@ -312,8 +336,8 @@
                 <p><a class="poster-link" href="https://v.wjx.cn/vm/mZqCXLf.aspx" target="_blank" rel="noopener">完成会议注册</a></p>
             </div>
             <div class="register-content lang-en">
-                <p>Please note that participants and poster presenters must complete workshop registration.</p>
-                <p><a class="poster-link" href="https://v.wjx.cn/vm/mZqCXLf.aspx" target="_blank" rel="noopener">Register for the Workshop</a></p>
+                <p>All participants, including poster presenters, are required to complete workshop registration.</p>
+                <p><a class="poster-link" href="https://v.wjx.cn/vm/mZqCXLf.aspx" target="_blank" rel="noopener">Complete Workshop Registration</a></p>
             </div>
         </div>
 
@@ -345,8 +369,8 @@
             </div>
 
             <div class="poster-content lang-en">
-                <h3>Poster Session Call</h3>
-                <p>The ITCS 10th Anniversary Workshop invites poster submissions from all participating faculty members and students. Published papers, submitted papers, ongoing projects, and preliminary results related to theoretical computer science and relevant interdisciplinary fields are all welcome. Young scholars, postdoctoral researchers, Ph.D. students, and master's students are especially encouraged to participate.</p>
+                <h3>Call for Posters</h3>
+                <p>The ITCS 10th Anniversary Workshop invites poster submissions from participating faculty members, postdoctoral researchers, and students. We welcome published work, submitted papers, ongoing research projects, and preliminary results in theoretical computer science and related interdisciplinary areas. Early-career researchers and graduate students are especially encouraged to participate.</p>
                 <p><strong>Submission deadline:</strong> June 1, 2026</p>
                 <p><a class="poster-link" href="https://www.wjx.top/vm/PpRvY6P.aspx" target="_blank" rel="noopener">Submit a Poster Proposal</a></p>
 
@@ -354,14 +378,14 @@
                 <ul>
                     <li>Paper title</li>
                     <li>Abstract</li>
-                    <li>Main presenter</li>
-                    <li>Affiliation</li>
+                    <li>Primary presenter</li>
+                    <li>Affiliation(s)</li>
                     <li>Publication status</li>
                 </ul>
-                <p>Submissions will be briefly reviewed by the organizing committee. Late submissions may be considered if space remains. Each poster should have one main presenter; each person may serve as the main presenter for at most one poster, while collaborative participation in other posters is not limited.</p>
+                <p>Submissions will be reviewed by the organizing committee. Late submissions may be considered subject to space availability. Each poster should designate one primary presenter; each participant may serve as the primary presenter for at most one poster, while participation as a coauthor on other posters is not limited.</p>
 
                 <h3>Presentation Guidelines</h3>
-                <p>The Poster Session will be held onsite. Selected presenters should design, print, and bring their posters to the venue.</p>
+                <p>The poster session will be held in person. Accepted presenters are responsible for designing, printing, and bringing their posters to the venue.</p>
                 <ul>
                     <li>Recommended size: 120 cm × 90 cm</li>
                     <li>Recommended language: English</li>
@@ -372,15 +396,22 @@
         <div class="organization" id="organization">
             <div style="height: 50px;"></div>
             <h2 data-i18n="section_organization">组织机构</h2>
-            <p data-i18n="host_unit">
-                承办单位：上海财经大学理论计算机科学研究中心（ITCS）
-            </p>
-            <p data-i18n="co_host_unit">
-                承办单位：计算经济交叉科学教育部重点实验室
-            </p>
-            <p data-i18n="contact_email">
-                联系邮箱：liang.huili@sufe.edu.cn
-            </p>
+            <div class="organization-content">
+                <div class="organization-text">
+                    <p data-i18n="host_unit">
+                        承办单位：上海财经大学理论计算机科学研究中心（ITCS）
+                    </p>
+                    <p data-i18n="co_host_unit">
+                        承办单位：计算经济交叉科学教育部重点实验室
+                    </p>
+                    <p data-i18n="contact_email">
+                        联系邮箱：liang.huili@sufe.edu.cn
+                    </p>
+                </div>
+                <figure class="organization-qr">
+                    <img src="img/itcs-qr.png" alt="ITCS QR code">
+                </figure>
+            </div>
         </div>
         <div style="height: 30px;"></div>
     </div>
