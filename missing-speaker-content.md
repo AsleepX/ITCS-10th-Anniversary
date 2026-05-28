@@ -1,17 +1,11 @@
 # Missing Speaker Content
 
-Source file: `会议报告内容.docx`
-
-The following people were not added to the Speaker section because at least one required field is missing. Required fields are name, affiliation, bio, title, and abstract.
-
-| Name | Affiliation | Bio | Title | Abstract | Missing fields |
-| --- | --- | --- | --- | --- | --- |
-| 邵帅 | 中国科学技术大学 | Missing | An LP algorithm for counting Eulerian orientations through the lens of polymorphism | Missing | Bio, Abstract |
-| 张驰豪 | 上海交通大学 | Present | Discrete Optimal Transport and Its Applications in Sampling | Missing | Abstract |
-| Richard | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
-| jannik | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
-| 蔡进一 | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
-| Nick Harvey | Missing | Missing | Missing | Missing | Affiliation, Bio, Title, Abstract |
-| Kaito Fujii | Kyoto University | Missing | Bayes correlated equilibria and no-regret dynamics | Present | Bio |
-| Sai Ganesh Nagarajan | Missing | Missing | Present | Present | Affiliation, Bio |
-| Ioannis Panageas | Missing | Missing | Present | Present | Affiliation, Bio |
+| Name | Missing |
+| --- | --- |
+| Bakh M. Khoussainov | title, abstract, biography |
+| 彭泱 / Yang Peng | title, abstract, biography |
+| 蔡进一 / Jin-Yi Cai | abstract, biography |
+| 付治国 / Zhiguo Fu | title, abstract, biography |
+| 邵帅 / Shuai Shao | abstract, biography |
+| 张驰豪 / Chihao Zhang | abstract |
+| Nick Harvey | abstract, biography |
